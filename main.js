@@ -67,11 +67,11 @@ function initCustomCursor() {
     hoverElements.forEach((el) => {
         el.addEventListener("mouseenter", () => {
             follower.classList.add("hover");
-            cursor.style.transform = "scale(1.5)";
+            cursor.style.transform = "translate(-50%, -50%) scale(1.5)";
         });
         el.addEventListener("mouseleave", () => {
             follower.classList.remove("hover");
-            cursor.style.transform = "scale(1)";
+            cursor.style.transform = "translate(-50%, -50%) scale(1)";
         });
     });
 }

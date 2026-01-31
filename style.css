@@ -63,8 +63,8 @@ ul {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.1s ease;
     mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
 }
 
 .cursor-follower {
@@ -75,8 +75,9 @@ ul {
     position: fixed;
     pointer-events: none;
     z-index: 9998;
-    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
     opacity: 0.5;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
 .cursor-follower.hover {
@@ -453,8 +454,8 @@ ul {
 /* Hero Visual */
 .hero-visual {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
     z-index: 2;
 }
 
@@ -463,9 +464,9 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    border: 2px solid rgba(102, 126, 234, 0.3);
+    width: 500px;
+    height: 500px;
+    border: 3px solid rgba(255, 215, 0, 0.4);
     border-radius: 50%;
     animation: rotate 20s infinite linear;
 }
@@ -475,11 +476,11 @@ ul {
     position: absolute;
     top: -5px;
     left: 50%;
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
     border-radius: 50%;
-    box-shadow: 0 0 20px var(--accent);
+    box-shadow: 0 0 25px var(--gold);
 }
 
 .hero-circle-2 {
@@ -487,9 +488,9 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    height: 350px;
-    border: 2px dashed rgba(240, 147, 251, 0.3);
+    width: 450px;
+    height: 450px;
+    border: 2px dashed rgba(255, 215, 0, 0.3);
     border-radius: 50%;
     animation: rotate 15s infinite linear reverse;
 }
@@ -522,6 +523,63 @@ ul {
     font-size: 6rem;
     box-shadow: 0 0 60px rgba(102, 126, 234, 0.5);
     animation: pulse 2s infinite ease-in-out;
+}
+
+/* Giant Eagle Avatar */
+.hero-avatar.eagle-avatar {
+    width: 350px;
+    height: 350px;
+    font-size: 15rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #0f3460 100%);
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.4),
+        0 0 120px rgba(102, 126, 234, 0.3),
+        inset 0 0 60px rgba(255, 215, 0, 0.1);
+    animation: eagle-pulse 3s infinite ease-in-out,
+        eagle-float 4s infinite ease-in-out;
+}
+
+.hero-avatar.eagle-avatar .avatar-emoji {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    animation: eagle-glow 2s infinite ease-in-out;
+}
+
+@keyframes eagle-pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.4),
+            0 0 120px rgba(102, 126, 234, 0.3),
+            inset 0 0 60px rgba(255, 215, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 100px rgba(255, 215, 0, 0.6),
+            0 0 180px rgba(102, 126, 234, 0.5),
+            inset 0 0 80px rgba(255, 215, 0, 0.2);
+    }
+}
+
+@keyframes eagle-float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    75% {
+        transform: translateY(10px) rotate(-2deg);
+    }
+}
+
+@keyframes eagle-glow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1))
+            drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
+    }
 }
 
 @keyframes pulse {
@@ -1655,6 +1713,12 @@ section {
         width: 150px;
         height: 150px;
         font-size: 4rem;
+    }
+
+    .hero-avatar.eagle-avatar {
+        width: 200px;
+        height: 200px;
+        font-size: 8rem;
     }
 
     .hero-stats {
